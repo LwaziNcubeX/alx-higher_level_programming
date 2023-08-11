@@ -12,4 +12,3 @@ for i in range(1, n):
 
 for x, y in zip(numList, argv):
     print("{}: {}".format(x, y))
-
