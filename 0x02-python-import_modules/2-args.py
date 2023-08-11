@@ -8,7 +8,7 @@ def print_args():
     if n == 0:
         print("{} arguments.".format(n))
     elif n == 1:
-        print("1 arguments:".format(n))
+        print("1 argument:".format(n))
     else:
         print("{} arguments:".format(n))
 
