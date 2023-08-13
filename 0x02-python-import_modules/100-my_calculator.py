@@ -8,7 +8,8 @@ if __name__ == "__main__":
 
     error = "Unknown operator. Available operators:"
     if n < 4 or n > 4:
-        exit("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        exit(1)
     else:
         a = int(argv[1])
         b = int(argv[3])
@@ -22,4 +23,5 @@ if __name__ == "__main__":
         elif op == "/":
             print("{} {} {} = {}".format(a, op, b, div(a, b)))
         else:
-            exit("{} +, -, * and /".format(error))
+            print("Unknown operator. Available operators: +, -, * and /")
+            exit(1)
