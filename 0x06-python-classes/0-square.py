@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""0. My first square"""
 class Square:
-    """This is an empty class that defines a square.
+    """
+        This is an empty class that defines a square.
 
     A square is a closed shape with four equal sides and four right angles.
     This class represents a square shape as an object that can be used in
