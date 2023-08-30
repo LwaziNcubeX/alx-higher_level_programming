@@ -126,6 +126,6 @@ class Square:
         Returns the string representation of the square.
         """
         s = "\n" * self.__position[1]
-        x = self.__size + "\n"
-        s += (" " * self.__position[0] + "#" * x) * self.__size
+        x = "\n"
+        s += (" " * self.__position[0] + "#" * self.__size + x) * self.__size
         return s[:-1]
