@@ -1,13 +1,14 @@
-'''
+```
 >>> add_integer = __import__('0-add_integer').add_integer
 
+# Valid input tests
 >>> add_integer(2, 2)
 4
 
 >>> add_integer(-5, 10)
 5
 
->>> add_integer(6)    # Add 98 by default
+>>> add_integer(6)    
 104
 
 >>> add_integer(4.5, 3.2)
@@ -22,11 +23,25 @@
 >>> add_integer(-3, -3)
 -6
 
+# Invalid input tests
 >>> add_integer("hie", 3)
-a must be an integer
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
 
->>> add_integer(7, 'x')
-b must be an integer
+>>> add_integer(6, 'c')
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+# Additional tests for edge cases and specific scenarios
+
+>>> add_integer(x, x)
+Traceback (most recent call last):
+  ...
+NameError: name 'x' is not defined
+>>> add_integer("", x)
+Traceback (most recent call last):
+  ...
+NameError: name 'x' is not defined
 >>>
-
-'''
