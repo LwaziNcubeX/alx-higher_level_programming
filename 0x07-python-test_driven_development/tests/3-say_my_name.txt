@@ -1,0 +1,70 @@
+'''
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+>>> say_my_name(John, "Smith")
+Traceback (most recent call last):
+  ...
+NameError: name 'John' is not defined
+
+>>> say_my_name(7, "Smith")
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name(7, 9)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name("kate", 9)
+Traceback (most recent call last):
+  ...
+TypeError: last_name must be a string
+
+>>> say_my_name(, 9)
+Traceback (most recent call last):
+  ...
+SyntaxError: invalid syntax
+
+>>> say_my_name(9)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name("j")
+My name is j 
+
+>>>
+
+>>> say_my_name("kate", "j", "i")
+Traceback (most recent call last):
+  ...
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+>>> say_my_name("kate", "")
+My name is kate 
+
+>>> say_my_name("", "")
+My name is  
+
+>>> say_my_name("88878", "")
+My name is 88878 
+
+>>> say_my_name("88878", "-09")
+My name is 88878 -09
+
+>>> say_my_name("88878", "-09            ")
+My name is 88878 -09            
+
+>>> say_my_name("88878", "-09            0")
+My name is 88878 -09            0
+
+>>> say_my_name("8bhkjbuihb8878", "-09            0")
+My name is 8bhkjbuihb8878 -09            0
+
+>>> 
+
+'''
