@@ -20,8 +20,8 @@ class Rectangle:
             width (int, optional): Defaults to 0 if not provided.
             height (int, optional): Defaults to 0 if not provided.
         """
-        self._width = width
-        self._height = height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
@@ -32,7 +32,7 @@ class Rectangle:
         Returns:
             self._width
         """
-        return self._width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -45,7 +45,7 @@ class Rectangle:
         Returns:
             Nothing
         """
-        self._width = value
+        self.__width = value
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif isinstance(value, int):
@@ -61,7 +61,7 @@ class Rectangle:
         Returns:
             height
         """
-        return self._height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -75,7 +75,7 @@ class Rectangle:
         Returns:
             Nothing
         """
-        self._height = value
+        self.__height = value
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif isinstance(value, int):
