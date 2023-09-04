@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Area and Perimeter"""
+"""Eval is magic"""
 
 
 class Rectangle:
