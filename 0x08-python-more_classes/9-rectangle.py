@@ -23,8 +23,8 @@ class Rectangle:
             width (int, optional): Defaults to 0 if not provided.
             height (int, optional): Defaults to 0 if not provided.
         """
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
