@@ -1,0 +1,177 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> 
+
+>>> text_indentation()
+Traceback (most recent call last):
+  ...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation("")
+<BLANKLINE>
+
+>>> text_indentation("l")
+l
+
+>>> text_indentation(6)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+
+>>> text_indentation("6")
+6
+
+>>> text_indentation("6\\\\\")
+Traceback (most recent call last):
+  ...
+SyntaxError: unterminated string literal (detected at line 1)
+
+>>> text_indentation("k/")
+k/
+
+>>> text_indentation("k/\")
+Traceback (most recent call last):
+  ...
+SyntaxError: unterminated string literal (detected at line 1)
+
+>>> text_indentation("# This is a Python comment.\n\n# This is\n# a\n# multi-line\n# comment.")
+# This is a Python comment.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+# This is
+# a
+# multi-line
+# comment.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a test\nof the text_indentation function.\n\nIt should handle all sorts of cases.\n\nIncluding this one.")
+This is a test
+of the text_indentation function.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+It should handle all sorts of cases.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+Including this one.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a\ntest\nwith some\neven longer\nlines.")
+This is a
+test
+with some
+even longer
+lines.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This\nis\na\nvertical\nlist\n\n - with\n - some\n - items")
+This
+is
+a
+vertical
+list
+<BLANKLINE>
+- with
+- some
+- items
+
+
+>>> text_indentation("Hello,  world!  \n\nThis is\na test.")
+Hello,  world!
+<BLANKLINE>
+This is
+a test.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("Today I went to the store.\n\nI bought apples,\n\nbananas,\n\nand oranges.")
+Today I went to the store.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+I bought apples,
+<BLANKLINE>
+bananas,
+<BLANKLINE>
+and oranges.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This line contains spaces.       \n\nThis line does not.")
+This line contains spaces.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+This line does not.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This line contains tabs.\t\t\n\nThis line does not.")
+This line contains tabs.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+This line does not.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("\n\n\n\n\n\n\n\n")
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("One period. Two periods.. Three periods...\n\n")
+One period.
+<BLANKLINE>
+Two periods.
+<BLANKLINE>
+.
+<BLANKLINE>
+Three periods.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("Does it handle\r\nWindows line endings?\r\n")
+Does it handle
+Windows line endings?
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("Can it handle   multiple   spaces?\n[Yes|No]\n")
+Can it handle   multiple   spaces?
+<BLANKLINE>
+<BLANKLINE>
+[Yes|No]
+<BLANKLINE>
+
+>>> text_indentation("What about\nnewlines\nin the middle\nof a sentence?\n")
+What about
+newlines
+in the middle
+of a sentence?
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
