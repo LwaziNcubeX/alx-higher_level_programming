@@ -46,49 +46,49 @@ ValueError: m_a and m_b can't be multiplied
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a must be a list or m_b must be a list
+TypeError: m_a must be a list
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = "abc"
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a must be a list or m_b must be a list
+TypeError: m_b must be a list
 
 >>> m_a = []
 >>> m_b = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-ValueError: m_a can't be empty or m_b can't be empty
+ValueError: m_a can't be empty
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = []
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-ValueError: m_a can't be empty or m_b can't be empty
+ValueError: m_b can't be empty
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[5, 6], [7, '8']]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a should contain only integers or floats or m_b should contain only integers or floats
+TypeError: m_b should contain only integers or floats
 
 >>> m_a = [[1, 2], [3, 4, 5]]
 >>> m_b = [[5, 6], [7, 8]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: each row of m_a must be of the same size or each row of m_b must be of the same size
+TypeError: each row of m_a must be of the same size
 
 >>> m_a = [[1, 2], 3]
 >>> m_b = [[5, 6], [7, 8]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a must be a list of lists or m_b must be a list of lists
+TypeError: m_a must be a list of lists
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[5, 6], [7, 8], [9, 10]]
@@ -102,14 +102,14 @@ ValueError: m_a and m_b can't be multiplied
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a should contain only integers or floats or m_b should contain only integers or floats
+TypeError: m_a should contain only integers or floats
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[5, 6], [7]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: each row of m_a must be of the same size or each row of m_b must be of the same size
+TypeError: each row of m_b must be of the same size
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[5, 6], [7, 8]]
