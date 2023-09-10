@@ -7,15 +7,18 @@ def matrix_mul(m_a, m_b):
     Multiply two matrices and return the result.
 
     Args:
-        m_a (list): A matrix represented as a list of lists of integers or floats.
-        m_b (list): A matrix represented as a list of lists of integers or floats.
+        m_a (list): A matrix represented as a list of lists
+                    of integers or floats.
+        m_b (list): A matrix represented as a list of lists
+                    of integers or floats.
 
     Returns:
         list: The product of the two input matrices.
 
     Raises:
         TypeError: If either of the input matrices is not a list,
-                    not a list of lists, or contains elements other than integers or floats,
+                    not a list of lists, or contains elements
+                    other than integers or floats,
                     or the rows in the input matrices are not of the same size.
         ValueError: If either of the input matrices is empty,
                     or if the input matrices cannot be multiplied.
