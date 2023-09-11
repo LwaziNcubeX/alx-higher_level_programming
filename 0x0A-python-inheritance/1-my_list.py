@@ -4,18 +4,13 @@
 
 class MyList(list):
     """
-    A class that inherits from list and provides additional functionality.
+    A class MyList that inherits from list
     """
-
     def __init__(self):
-        """
-        Initializes a new instance of the MyList class.
-        """
         super().__init__()
 
     def print_sorted(self):
         """
-        Prints the list in ascending order.
+        prints the list, but sorted (ascending sort)
         """
-        self.sort()
-        print(self)
+        print(sorted(self))
