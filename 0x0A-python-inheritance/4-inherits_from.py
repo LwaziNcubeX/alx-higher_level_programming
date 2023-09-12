@@ -14,8 +14,7 @@ def inherits_from(obj, a_class):
     return: True or false
     """
     a = type(obj)
-    if a != a_class:
-        return True
-    else:
+    if a == a_class:
         return False
-
+    else:
+        return True
