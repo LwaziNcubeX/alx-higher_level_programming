@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""First Rectangle"""
+"""Validate attributes"""
 from models.base import Base
 
 
@@ -32,10 +32,28 @@ class Rectangle(Base):
         :param id:
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+
+    @staticmethod
+    def validate_integer(value, name):
+        """check if value is int or not"""
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+
+    @staticmethod
+    def validate_gt_zero(value, name):
+        """check if value is less than or equal to zero"""
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
+    @staticmethod
+    def validate_ge_zero(value, name):
+        """check if value is less than zero"""
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))
 
     @property
     def width(self):
@@ -48,14 +66,16 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """
         Sets the width of the rectangle.
 
-        :param width:
+        :param value:
         :return:
         """
-        self.__width = width
+        self.validate_integer(value, "width")
+        self.validate_gt_zero(value, "width")
+        self.__width = value
 
     @property
     def height(self):
@@ -68,14 +88,16 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, height):
+    def height(self, value):
         """
         Sets the height of the rectangle.
 
-        :param height:
+        :param value:
         :return:
         """
-        self.__height = height
+        self.validate_integer(value, "height")
+        self.validate_gt_zero(value, "height")
+        self.__height = value
 
     @property
     def x(self):
@@ -87,13 +109,15 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
+    def x(self, value):
         """
         Sets the horizontal position of the rectangle.
-        :param x:
+        :param value:
         :return:
         """
-        self.__x = x
+        self.validate_integer(value, "x")
+        self.validate_ge_zero(value, "x")
+        self.__x = value
 
     @property
     def y(self):
@@ -106,10 +130,12 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, y):
+    def y(self, value):
         """
         Sets the vertical position of the rectangle.
-        :param y:
+        :param value:
         :return:
         """
-        self.__y = y
+        self.validate_integer(value, "y")
+        self.validate_ge_zero(value, "y")
+        self.__y = value
