@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Validate attributes"""
+"""AREA CALCULATION"""
 from models.base import Base
 
 
@@ -139,3 +139,12 @@ class Rectangle(Base):
         self.validate_integer(value, "y")
         self.validate_ge_zero(value, "y")
         self.__y = value
+
+    def area(self):
+        """
+        Calculate Area
+
+        :return:
+            the area value of the Rectangle instance
+        """
+        return self.__width * self.height
