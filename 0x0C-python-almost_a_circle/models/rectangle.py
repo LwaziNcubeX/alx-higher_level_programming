@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""implement __str__"""
+"""Display #!"""
 from models.base import Base
 
 
@@ -151,9 +151,14 @@ class Rectangle(Base):
 
     def display(self):
         """display a Rectangle using the # char"""
-        for i in range(self.__height):
-            print("#" * self.__width)
-
+        for i in range(self.y):
+            print("")
+        for i in range(self.height):
+            for j in range(self.x):
+                print(" ", end="")
+            for j in range(self.width):
+                print("#", end="")
+            print("")
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
