@@ -25,7 +25,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns JSON string representation"""
-        if list_dictionaries is None or list_dictionaries == "":
+        if not list_dictionaries:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
@@ -39,3 +39,24 @@ class Base:
         list_dicts = [obj.to_dictionary() for obj in list_objs]
         with open(filename, "w") as f:
             f.write(cls.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation json_string"""
+        if not json_string:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set:"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls.__name__ == "Rectangle":
+            dummy = Rectangle(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = Square(1)
+        else:
+            dummy = cls()
+        dummy.update(**dictionary)
+        return dummy
