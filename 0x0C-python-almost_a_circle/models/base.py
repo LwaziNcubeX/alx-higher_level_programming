@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """BASE CLASS"""
+import csv
 import json
 
 
@@ -71,3 +72,35 @@ class Base:
                 return [cls.create(**d) for d in json_list]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns a list of instances of the class loaded from a CSV file."""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", encoding="utf-8") as f:
+                reader = csv.reader(f)
+                objs = []
+                for row in reader:
+                    data_dict = {}
+                    if cls.__name__ == "Rectangle":
+                        attrs = ("id", "width", "height", "x", "y")
+                    elif cls.__name__ == "Square":
+                        attrs = ("id", "size", "x", "y")
+                    for i, attr in enumerate(attrs):
+                        data_dict[attr] = int(row[i])
+                    obj = cls.create(**data_dict)
+                    objs.append(obj)
+                return objs
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves a list of instances of the class to a CSV file."""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="", encoding="utf-8") as f:
+            csv_writer = csv.writer(f)
+            for obj in list_objs:
+                row = [getattr(obj, a) for a in obj.__dict__.keys()]
+                csv_writer.writerow(row)
