@@ -37,14 +37,14 @@ class TestBase(unittest.TestCase):
         """Tests constructor signature."""
         with self.assertRaises(TypeError) as e:
             Base.__init__()
-        msg = "Base.__init__() takes from 1 to 2 positional arguments but 3 were given: 'self'"
+        msg = "Base.__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
     def test_D_constructor_args_2(self):
         """Tests constructor signature with 2 not self args."""
         with self.assertRaises(TypeError) as e:
             Base.__init__(self, 1, 2)
-        msg = "__init__() takes from 1 to 2 positional arguments but 3 \
+        msg = "Base.__init__() takes from 1 to 2 positional arguments but 3 \
 were given"
         self.assertEqual(str(e.exception), msg)
 
@@ -85,12 +85,11 @@ were given"
         b = Base(id=i)
         self.assertEqual(b.id, i)
 
-    # ----------------- Tests for #15 ------------------------
     def test_H_to_json_string(self):
         """Tests to_json_string() signature:"""
         with self.assertRaises(TypeError) as e:
             Base.to_json_string()
-        s = "to_json_string() missing 1 required positional argument: \
+        s = "Base.to_json_string() missing 1 required positional argument: \
 'list_dictionaries'"
         self.assertEqual(str(e.exception), s)
 
@@ -103,13 +102,13 @@ were given"
         d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
         self.assertEqual(len(Base.to_json_string(d)),
                          len(str(d)))
-        d = [{"foobarrooo": 989898}]
+        d = [{"gsajjhs": 877766}]
         self.assertEqual(Base.to_json_string(d),
-                         '[{"foobarrooo": 989898}]')
+                         '[{"gsajjhs": 877766}]')
 
-        d = [{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]
+        d = [{"gsajjhs": 877766}, {"abc": 123}, {"HI": 0}]
         self.assertEqual(Base.to_json_string(d),
-                         '[{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]')
+                         '[{"gsajjhs": 877766}, {"abc": 123}, {"HI": 0}]')
 
         d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5},
              {'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
@@ -162,7 +161,7 @@ were given"
         """Tests to_json_string() signature:"""
         with self.assertRaises(TypeError) as e:
             Base.from_json_string()
-        s = "from_json_string() missing 1 required positional argument: \
+        s = "Base.from_json_string() missing 1 required positional argument: \
 'json_string'"
         self.assertEqual(str(e.exception), s)
 
@@ -183,12 +182,12 @@ were given"
         s = '[{}]'
         self.assertEqual(Base.from_json_string(s), d)
 
-        d = [{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]
-        s = '[{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]'
+        d = [{"gsajjhs": 877766}, {"abc": 123}, {"HI": 0}]
+        s = '[{"gsajjhs": 877766}, {"abc": 123}, {"HI": 0}]'
         self.assertEqual(Base.from_json_string(s), d)
 
-        d = [{"foobarrooo": 989898}]
-        s = '[{"foobarrooo": 989898}]'
+        d = [{"gsajjhs": 877766}]
+        s = '[{"gsajjhs": 877766}]'
         self.assertEqual(Base.from_json_string(s), d)
 
         d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
@@ -209,7 +208,6 @@ were given"
             Rectangle.to_json_string(list_in))
         self.assertEqual(list_in, list_out)
 
-        # ----------------- Tests for #16 ------------------------
     def test_I_save_to_file(self):
         """Tests save_to_file() method."""
         import os
@@ -223,11 +221,7 @@ were given"
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
-
-        try:
             os.remove("Rectangle.json")
-        except:
-            pass
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
@@ -240,11 +234,7 @@ were given"
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
-
-        try:
             os.remove("Square.json")
-        except:
-            pass
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
@@ -254,7 +244,6 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 38)
 
-        # ----------------- Tests for #18 ------------------------
     def test_J_create(self):
         """Tests create() method."""
         r1 = Rectangle(3, 5, 1)
@@ -264,7 +253,6 @@ were given"
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
 
-        # ----------------- Tests for #19 ------------------------
     def test_K_load_from_file(self):
         """Tests load_from_file() method."""
         r1 = Rectangle(10, 7, 2, 8)
