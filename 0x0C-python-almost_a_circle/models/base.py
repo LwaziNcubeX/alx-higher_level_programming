@@ -2,6 +2,8 @@
 """BASE CLASS"""
 import csv
 import json
+import random
+import turtle
 
 
 class Base:
@@ -20,8 +22,8 @@ class Base:
         if id is not None:
             self.id = id
         else:
-            self.__class__.__nb_objects += 1
-            self.id = self.__class__.__nb_objects
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -95,12 +97,41 @@ class Base:
         except FileNotFoundError:
             return []
 
-    @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """Saves a list of instances of the class to a CSV file."""
-        filename = cls.__name__ + ".csv"
-        with open(filename, "w", newline="", encoding="utf-8") as f:
-            csv_writer = csv.writer(f)
-            for obj in list_objs:
-                row = [getattr(obj, a) for a in obj.__dict__.keys()]
-                csv_writer.writerow(row)
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws all Rectangles and Squares using Turtle graphics."""
+        t = turtle.Turtle()
+        t.speed(6)
+
+        for rectangle in list_rectangles:
+            # set a random fill color
+            t.fillcolor(random.random(), random.random(), random.random())
+
+            # draw the rectangle and save its position
+            t.penup()
+            t.goto(rectangle.x, rectangle.y)
+            t.pendown()
+            t.begin_fill()
+            t.pensize(3)
+            for i in range(3):
+                t.forward(rectangle.width)
+                t.left(-90)
+                t.forward(rectangle.height)
+                t.left(-90)
+            t.end_fill()
+
+        for square in list_squares:
+            t.fillcolor(random.random(), random.random(), random.random())
+
+            # draw the square and save its position
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            t.color("blue", "red")
+            t.pensize(3)
+            for i in range(4):
+                t.forward(square.size)
+                t.right(-90)
+            t.end_fill()
+
+        turtle.mainloop()
