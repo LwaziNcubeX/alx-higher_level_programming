@@ -76,6 +76,20 @@ class Base:
             return []
 
     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save to file csv class method"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", newline="") as file:
+            writer = csv.writer(file)
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.width,
+                                     obj.height, obj.x, obj.y])
+            elif cls.__name__ == "Square":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
     def load_from_file_csv(cls):
         """Returns a list of instances of the class loaded from a CSV file."""
         filename = cls.__name__ + ".csv"
