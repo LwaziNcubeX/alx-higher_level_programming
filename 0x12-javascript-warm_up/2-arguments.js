@@ -1,5 +1,2 @@
 #!/usr/bin/node
-
-const argsLen = process.argv.length;
-
-console.log(argsLen === 2 ? 'Argument found' : argsLen > 2 ? 'Arguments found' : 'No argument');
+console.log(process.argv.length === 2 ? 'Argument found' : process.argv.length > 2 ? 'Arguments found' : 'No argument');
