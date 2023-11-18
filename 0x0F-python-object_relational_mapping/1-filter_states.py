@@ -6,7 +6,7 @@ import sys
 
 def list_states_with_n():
     """
-    Get command line arguments
+    list all states starting with N
     """
     username = sys.argv[1]
     password = sys.argv[2]
