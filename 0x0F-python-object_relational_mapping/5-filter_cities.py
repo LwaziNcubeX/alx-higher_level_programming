@@ -30,8 +30,8 @@ def list_cities_by_state():
                    (state_name,))
 
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    if rows:
+        print(', '.join(city[0] for city in rows))
 
     cursor.close()
     db.close()
