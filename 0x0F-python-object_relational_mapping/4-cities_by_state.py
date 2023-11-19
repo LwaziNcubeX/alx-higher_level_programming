@@ -2,26 +2,33 @@
 """
 Lists all cities from the database
 """
-
-import sys
 import MySQLdb
+import sys
 
-if __name__ == "__main__":
+
+def list_cities():
+    """
+    List all cities in the database hbtn_0e_4_usa
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    db = MySQLdb.connect(
-        host="localhost", port=3306,
-        user=username, passwd=password, db=database
-    )
+    db = MySQLdb.connect(host="localhost",
+                         port=3306, user=username,
+                         passwd=password, db=database)
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM cities ORDER BY id ASC")
-    rows = cursor.fetchall()
+    query = "SELECT * FROM cities ORDER BY id ASC"
+    cursor.execute(query)
 
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
 
     cursor.close()
     db.close()
+
+
+if __name__ == "__main__":
+    list_cities()
