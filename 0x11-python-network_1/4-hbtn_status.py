@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """A Python script that fetches https://alx-intranet.hbtn.io/status"""
-from urllib import request
+import requests
 
 
 def fetch_me_again():
@@ -8,11 +8,12 @@ def fetch_me_again():
     A Function that fetches https://alx-intranet.hbtn.io/status
     """
     url = "https://alx-intranet.hbtn.io/status"
-    with request.urlopen(url) as response:
-        data = response.read().decode('utf8')
-        print('Body response:')
-        print('\t- type: {}'.format(type(data)))
-        print('\t- content: {}'.format(data))
+
+    data = requests.get(url) 
+    data.encoding = 'utf-8'
+    print('Body response:')
+    print('\t- type: {}'.format(type(data.text)))
+    print('\t- content: {}'.format(data.text))
 
 
 if __name__ == "__main__":
