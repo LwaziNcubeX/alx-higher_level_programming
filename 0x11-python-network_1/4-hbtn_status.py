@@ -9,7 +9,7 @@ def fetch_me_again():
     """
     url = "https://alx-intranet.hbtn.io/status"
 
-    data = requests.get(url) 
+    data = requests.get(url)
     data.encoding = 'utf-8'
     print('Body response:')
     print('\t- type: {}'.format(type(data.text)))
