@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# install files using proxy
+sudo npm --proxy http://26.26.26.1:8080 "$@"
